@@ -84,19 +84,18 @@ async def message_handler5(message: Message):
 async def any_digits_handler(message: Message):
     await message.answer('Hello from my digits')
 
-@my_router.message(F.text == 'Remove kb Button1')
+@my_router.message(F.text == 'remove buttons')
 async def message_handler6(message: Message):
     await message.answer('Button1 pushed', reply_markup=ReplyKeyboardRemove())
 
-@my_router.message(F.text == 'Inline Button2')
+@my_router.message(F.text == 'inline buttons')
 async def message_handler7(message: Message):
     await message.answer('Button1 pushed', reply_markup=builder_inline.as_markup())
 
-from sqlite3_get import rate
 
-@my_router.message(F.text == 'Exchange Rate')
-async def message_handler4(message: Message):
-    await message.answer(rate)
+# @my_router.message(F.text == 'Exchange Rate')
+# async def message_handler8(message: Message):
+#     await message.answer(rate)
 
 # @my_router.callback_query(MyCallback.filter(F.filter_mark == 'p2'))
 @my_router.callback_query(filter_p2)
@@ -110,13 +109,20 @@ async def callback_query_handler(call):
     await call.message.answer(call.data)
     await call.message.answer('f1 data test')
 
+@my_router.message(F.text.lower().contains('calc'))
+async def message_handler_calc(message: Message):
+    await message.answer('Выбери исходную валюту:', reply_markup=inline_calc.as_markup())
     
+
+
+
 # KEYBOARDS
 
 builder = ReplyKeyboardBuilder()
-builder.button(text='Remove kb Button1', callback_data='button pushed').adjust(1)
-builder.button(text='Inline Button2', callback_data='button pushed').adjust(1)
+builder.button(text='remove buttons', callback_data='button pushed').adjust(1)
+builder.button(text='inline buttons', callback_data='button pushed').adjust(1)
 builder.button(text='Exchange Rate', callback_data=cb2).adjust(1)
+builder.button(text='calc', callback_data=cb2).adjust(1)
 # builder.adjust(1, 1, 1)
 
 
@@ -129,6 +135,13 @@ url_button = InlineKeyboardButton(text='LINK!', url='https://ya.ru')
 webapp_button = InlineKeyboardButton(text='WEBAPP!', web_app=WebAppInfo(url='https://taplink.cc/vnd'))
 
 builder_inline.add(url_button, webapp_button)
+
+# CALC keyboard
+inline_calc = InlineKeyboardBuilder()
+inline_calc.button(text='USDT', callback_data='usdt')
+inline_calc.button(text='USD', callback_data='usd')
+inline_calc.button(text='RUB', callback_data='rub')
+
 
 
 async def main() -> None:

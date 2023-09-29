@@ -366,3 +366,92 @@ ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramConflictError: Telegr
 WARNING:aiogram.dispatcher:Sleep for 5.057646 seconds and try again... (tryings = 97, bot id = 6682160554)
 ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 WARNING:aiogram.dispatcher:Sleep for 5.119757 seconds and try again... (tryings = 98, bot id = 6682160554)
+[(0, 'date', 'date', 0, None, 0), (1, 'USDT', 'INTEGER', 1, None, 0), (2, 'USD', 'INTEGER', 1, None, 0), (3, 'RUB', 'INTEGER', 1, None, 0)]
+USDT
+USD
+RUB
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @vnd_ex_bot id=6682160554 - 'VND test bot'
+INFO:aiogram.event:Update id=28736786 is handled. Duration 739 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736791 is handled. Duration 754 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736787 is handled. Duration 807 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736784 is handled. Duration 846 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736785 is handled. Duration 894 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736790 is handled. Duration 938 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736789 is handled. Duration 1000 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736788 is handled. Duration 1066 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736792 is handled. Duration 762 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736793 is handled. Duration 253 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28736794 is handled. Duration 239 ms by bot id=6682160554
+
+
+
+
+
+<aiogram.utils.magic_filter.MagicFilter object at 0x10baab950>
+INFO:aiogram.event:Update id=28736795 is not handled. Duration 3 ms by bot id=6682160554
+ERROR:aiogram.event:Cause exception while process update id=28736795 by bot id=6682160554
+NameError: name 'marker' is not defined
+Traceback (most recent call last):
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 308, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/fsm/middleware.py", line 39, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 120, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 275, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 144, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/router.py", line 136, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/event/telegram.py", line 120, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/.venv/lib/python3.11/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/sokol/Desktop/Py/TGbot/bot_router copy.py", line 72, in any_digits_handler
+    if marker == 'usdt':
+       ^^^^^^
+NameError: name 'marker' is not defined
+INFO:aiogram.event:Update id=28736796 is handled. Duration 656 ms by bot id=6682160554
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @vnd_ex_bot id=6682160554 - 'VND test bot'
+INFO:aiogram.event:Update id=28737038 is handled. Duration 1015 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28737039 is handled. Duration 598 ms by bot id=6682160554
+INFO:aiogram.event:Update id=28737040 is handled. Duration 519 ms by bot id=6682160554
+WARNING:aiogram.dispatcher:Received SIGINT signal
+INFO:aiogram.dispatcher:Polling stopped for bot @vnd_ex_bot id=6682160554 - 'VND test bot'
+INFO:aiogram.dispatcher:Polling stopped

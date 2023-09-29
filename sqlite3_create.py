@@ -1,25 +1,37 @@
-import sqlite3
-
-DB_NAME = 'vnd.db'
+from config import DB_NAME
 
 # TABLE CREATION
+import sqlite3
 with sqlite3.connect(DB_NAME) as sql_conn:
     sql_request = """CREATE TABLE IF NOT EXISTS DAY_RATE (
         date date,
         USDT integer NOT NULL,
         USD integer NOT NULL,
-        RUB integer NOT NULL
+        RUB integer NOT NULL,
+        TIMESTAMP text NOT NULL
     );"""
 sql_conn.execute(sql_request)
 
-# TABLE INSERT
+
+# ALTER TABLE
+# import sqlite3
 # with sqlite3.connect(DB_NAME) as sql_conn:
-#     sql_request = "INSERT INTO DAY_RATE VALUES(?, ?, ?, ?)"
-#     sql_conn.execute(sql_request, ('1991-12-22', 23000, 23000, 231))
+#     sql_request = "ALTER TABLE DAY_RATE ADD COLUMN timestamp TEXT"
+#     sql_conn.execute(sql_request)
+#     sql_conn.commit()
+
+# TABLE INSERT
+# import sqlite3
+# from config import DB_NAME
+# from datetime import datetime
+# with sqlite3.connect(DB_NAME) as sql_conn:
+#     sql_request = "INSERT INTO DAY_RATE VALUES(?, ?, ?, ?, ?)"
+#     sql_conn.execute(sql_request, ('1991-12-22', 23000, 23000, 231, datetime.now()))
 #     sql_conn.commit()
 
 
 # TABLE SELECT
+# import sqlite3
 # with sqlite3.connect(DB_NAME) as sql_conn:
 #     sql_request = "SELECT * FROM DAY_RATE ORDER BY date DESC LIMIT 1"
 #     sql_cursor = sql_conn.execute(sql_request)
