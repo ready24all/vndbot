@@ -3,7 +3,7 @@ from logging.handlers import RotatingFileHandler
 
 
 log_files_count = 5
-logger = logging.getLogger('my_logger')
+logger = logging.getLogger('logger1')
 logger.setLevel(logging.DEBUG)
 
 
@@ -13,7 +13,7 @@ console_handler.setLevel(logging.DEBUG)
 file_handler = RotatingFileHandler('logs.log', maxBytes=1024*1024, backupCount={log_files_count})
 file_handler.setLevel(logging.DEBUG)
 
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 console_handler.setFormatter(formatter)
 file_handler.setFormatter(formatter)
 
