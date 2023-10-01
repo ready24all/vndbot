@@ -18,7 +18,8 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    # logging.basicConfig(filename='logs.log', level=logging.DEBUG)
+    # logging.basicConfig(filename='logs.log', level=logging.DEBUG,
+    #         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     logging.basicConfig(level=logging.INFO, stream=sys.stdout,
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
