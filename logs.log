@@ -549,3 +549,4 @@ INFO:aiogram.dispatcher:Polling stopped
 2023-10-03 19:03:39,135 - INFO - command <aiogram.utils.magic_filter.MagicFilter object at 0x1055dd150> pressed
 2023-10-03 19:04:49,989 - INFO - command <aiogram.utils.magic_filter.MagicFilter object at 0x1046b6190> pressed
 2023-10-03 19:04:52,358 - INFO - command <aiogram.utils.magic_filter.MagicFilter object at 0x1046b6190> pressed
+2023-10-03 12:56:47,458 - INFO - command exchange pressed
