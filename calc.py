@@ -6,6 +6,7 @@ from aiogram.filters import Command, CommandStart
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from create_bot import my_router
 from sqlite3_get import sql_get_currency, records
+from logger import *
 
 
 # SERVICE SECTION
@@ -24,6 +25,7 @@ class Calc(StatesGroup):
 @my_router.message(F.text == 'calc')
 async def command_calc(message: Message, state: FSMContext) -> None:
     await state.set_state(Calc.currency)
+    logger.info('calc operation 1')
     await message.answer(
         "Из какой валюты будет обмен?",
         reply_markup=inline_from_db.as_markup())
@@ -34,6 +36,7 @@ async def process_currency(callback_query: CallbackQuery, state: FSMContext) -> 
     await state.set_state(Calc.amount)
     await callback_query.message.answer(f"ТЫ ВЫБРАЛ {callback_query.data}")
     await callback_query.message.answer("ТЕПЕРЬ ВВЕДИ СУММУ:")
+    logger.info('calc operation 2')
 
 
 
@@ -51,9 +54,9 @@ async def process_amount(message: Message, state: FSMContext) -> None:
     await message.answer("ЩА ПОСЧИТАЕМ...")
     rate = sql_get_currency(data.get('currency'))
     money = rate * int(data.get('amount'))
-    print(data.get('amount'))
     await message.answer(f"Курс {rate} донгов за 1 {data.get('currency')}")
     print(format_number_with_spaces(money))
+    logger.info('calc operation last')
     await message.answer(f"К обмену будет {format_number_with_spaces(money)} донгов")
 
 

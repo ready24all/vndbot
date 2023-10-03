@@ -7,7 +7,7 @@ from datetime import datetime
 from keyboards import *
 from config import DB_NAME
 import sqlite3
-import logger
+from logger import *
 
 # FSM
 class Adminrate(StatesGroup):
@@ -39,7 +39,7 @@ async def message_handler_rate2(message: Message, state: FSMContext) -> None:
     await state.clear()
     rate_list = [datetime.now().strftime("%Y-%m-%d"), *message.text.split(), datetime.now()]
     insert_rate(rate_list)
-    logger.debug('rate added')
+    logger.info('rate added')
     await message.answer("Курс успешно добавлен")
 
 

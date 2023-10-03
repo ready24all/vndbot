@@ -544,3 +544,8 @@ INFO:aiogram.dispatcher:Polling stopped
 2023-10-02 00:17:19,049 - aiogram.dispatcher - WARNING - Received SIGINT signal
 2023-10-02 00:17:19,054 - aiogram.dispatcher - INFO - Polling stopped for bot @vnd_ex_bot id=6682160554 - 'VND bot'
 2023-10-02 00:17:19,055 - aiogram.dispatcher - INFO - Polling stopped
+2023-10-03 19:00:12,368 - INFO - command <aiogram.utils.magic_filter.MagicFilter object at 0x1121495d0> pressed
+2023-10-03 19:02:04,688 - INFO - command None pressed
+2023-10-03 19:03:39,135 - INFO - command <aiogram.utils.magic_filter.MagicFilter object at 0x1055dd150> pressed
+2023-10-03 19:04:49,989 - INFO - command <aiogram.utils.magic_filter.MagicFilter object at 0x1046b6190> pressed
+2023-10-03 19:04:52,358 - INFO - command <aiogram.utils.magic_filter.MagicFilter object at 0x1046b6190> pressed
