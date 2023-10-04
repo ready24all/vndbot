@@ -1,8 +1,7 @@
 import asyncio
 import logging
 import sys
-from create_bot import bot
-from create_bot import dp
+from create_bot import bot, dp
 from handlers import *
 from adminrate import *
 from calc import *

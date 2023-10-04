@@ -1,6 +1,9 @@
-TOKEN = '6682160554:AAFkLbC4bDBTl0I-oC3OBykAdCyW48ssVig'
-DB_NAME = 'vnd.db'
+import os
+from dotenv import load_dotenv
 
 
+load_dotenv()
 
+TOKEN = os.getenv('TOKEN')
+DB_NAME = os.getenv('DB_NAME')
 
