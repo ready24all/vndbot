@@ -4,10 +4,11 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from create_bot import my_router
 from datetime import datetime
-from keyboards import *
-from config import DB_NAME
-import sqlite3
-from logger import *
+# from keyboards import *
+from config import DB_CONFIG
+# import sqlite3
+import mysql.connector
+from logger import logger
 
 # FSM
 class Adminrate(StatesGroup):
@@ -44,14 +45,21 @@ async def message_handler_rate2(message: Message, state: FSMContext) -> None:
 
 
 
+# def insert_rate(rate_list):
+#     with sqlite3.connect(DB_NAME) as sql_conn:
+#         sql_request = "INSERT INTO DAY_RATE VALUES(?, ?, ?, ?, ?)"
+#         sql_conn.execute(sql_request, rate_list)
+#         sql_conn.commit()
+
 def insert_rate(rate_list):
-    with sqlite3.connect(DB_NAME) as sql_conn:
-        sql_request = "INSERT INTO DAY_RATE VALUES(?, ?, ?, ?, ?)"
-        sql_conn.execute(sql_request, rate_list)
-        sql_conn.commit()
+    with mysql.connector.connect(**DB_CONFIG) as db_connection:
+        with db_connection.cursor() as cursor:
+            sql_request = "INSERT INTO DAY_RATE (DATE, USDT, USD, RUB, TIMESTAMP) VALUES (%s, %s, %s, %s, %s)"
+            cursor.execute(sql_request, rate_list)
+        db_connection.commit()
 
 
-
+        
 # with sqlite3.connect(DB_NAME) as sql_conn:
 #     sql_request = "INSERT INTO DAY_RATE VALUES(?, ?, ?, ?)"
 #     sql_conn.execute(sql_request, ('1991-12-22', 1, 1, 1))

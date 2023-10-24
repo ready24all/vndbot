@@ -3,9 +3,9 @@ from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, KeyboardButton, WebAppInfo, ReplyKeyboardRemove
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from create_bot import my_router
-from sqlite3_get import print_rate
-from keyboards import *
-from logger import *
+from mysql_get import print_rate
+from keyboards import builder, builder_inline
+from logger import logger
 
 
 @my_router.message(CommandStart())

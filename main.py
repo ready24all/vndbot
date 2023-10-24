@@ -2,9 +2,9 @@ import asyncio
 import logging
 import sys
 from create_bot import bot, dp
-from handlers import *
-from adminrate import *
-from calc import *
+from handlers import command_start_handler, message_handler_command_kb, callback_query_picture, message_handler_inline_kb, message_get_rate, message_remove_kb, message_handler_mersi
+from adminrate import message_handler_rate, message_handler_rate2, insert_rate
+from calc import command_calc, process_currency, wrong_amount, process_amount
 
 
 

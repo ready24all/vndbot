@@ -5,8 +5,8 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command, CommandStart
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from create_bot import my_router
-from sqlite3_get import sql_get_currency, records
-from logger import *
+from mysql_get import sql_get_currency, records
+from logger import logger
 
 
 # SERVICE SECTION
@@ -55,12 +55,22 @@ async def process_amount(message: Message, state: FSMContext) -> None:
     rate = sql_get_currency(data.get('currency'))
     money = rate * int(data.get('amount'))
     await message.answer(f"Курс {rate} донгов за 1 {data.get('currency')}")
-    print(format_number_with_spaces(money))
+    # print(format_number_with_spaces(money))
     logger.info('calc operation last')
     await message.answer(f"К обмену будет {format_number_with_spaces(money)} донгов")
 
 
+# # KEYBOARD FOR calc.py
+# inline_from_db = InlineKeyboardBuilder()
+# for num in records[2:5]:
+#     inline_from_db.button(text=num[1], callback_data=num[1])
+#     print(num)
+
+currency = ['USDT', 'USD', 'RUB']
+
 # KEYBOARD FOR calc.py
 inline_from_db = InlineKeyboardBuilder()
-for num in records[1:4]:
-    inline_from_db.button(text=num[1], callback_data=num[1])
+for num in currency:
+    inline_from_db.button(text=num, callback_data=num)
+
+
