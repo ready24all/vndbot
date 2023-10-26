@@ -18,8 +18,7 @@ with mysql.connector.connect(**DB_CONFIG) as db_connection:
 
 
 from datetime import datetime
-rate_list = [datetime.now().strftime("%Y-%m-%d"), 9, 9, 9, datetime.now()]
-
+rate_list = [datetime.now().strftime("%Y-%m-%d"), 23900, 23900, 241, datetime.now()]
 
 
 
@@ -27,7 +26,9 @@ with mysql.connector.connect(**DB_CONFIG) as db_connection:
     with db_connection.cursor() as cursor:
         sql_request = "INSERT INTO DAY_RATE (DATE, USDT, USD, RUB, TIMESTAMP) VALUES (%s, %s, %s, %s, %s)"
         # sql_request = "INSERT INTO DAY_RATE (date, USDT, USD, RUB) VALUES (%s, %s, %s, %s)"
-        # sql_request = "INSERT INTO DAY_RATE VALUES (%s, %s, %s, %s, %s)"
         cursor.execute(sql_request, rate_list)
     db_connection.commit()
+    # with db_connection.cursor() as cursor:
+    #     # sql_request = "SET GLOBAL time_zone = '+07:00';"
+    #     cursor.execute(sql_request)
 

@@ -11,8 +11,8 @@ services:
   mysql:
     image: mysql
     restart: always
-    # ports:
-    #   - '3306:3306'
+    ports:
+      - '3366:3306'
     environment:
       MYSQL_ROOT_PASSWORD: vnd
       MYSQL_DATABASE: bot_db

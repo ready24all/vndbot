@@ -52,3 +52,30 @@ async def message_handler_mersi(message: Message):
     # await message.answer_animation('CgACAgQAAxkBAAIC9GUEaho8UstXBCHQlhiJCC9DmzBGAAKLAAM_lQRQoW5y7xikiDUwBA')
     await message.reply_animation('CgACAgQAAxkBAAIC9GUEaho8UstXBCHQlhiJCC9DmzBGAAKLAAM_lQRQoW5y7xikiDUwBA')
     logger.info(f"command thanx pressed")
+
+
+
+
+from create_bot import bot
+@my_router.message(F.text == 'qqq')
+async def message_get_rate(message: Message):
+    global previous_message_id
+    await bot.delete_message(chat_id=message.chat.id, message_id=previous_message_id)
+    await message.answer('qqq pressed')
+    await bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
+    # await message.delete()
+    previous_message_id = message.message_id
+    logger.info(f"command qqq pressed")
+    return previous_message_id
+
+
+@my_router.message(F.text == 'www')
+async def message_get_rate(message: Message):
+    await message.answer('www pressed')
+    await message.delete()
+    previous_message_id = message.message_id
+    logger.info(f"command www pressed")
+    print(previous_message_id)
+    await bot.delete_message(chat_id=message.chat.id, message_id=2504)
+
+    return previous_message_id
